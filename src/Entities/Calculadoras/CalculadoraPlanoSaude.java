@@ -6,8 +6,8 @@ import java.util.concurrent.Semaphore;
 
 public class CalculadoraPlanoSaude extends Calculadora{
 
-    public CalculadoraPlanoSaude(Funcionario[] funcionarios, int[] partes, int parteInicial, Semaphore semaphore, Semaphore[] rendezvousSemaphores, String outputPath) {
-        super("Plano de Saude", funcionarios, partes, parteInicial, semaphore, rendezvousSemaphores, outputPath);
+    public CalculadoraPlanoSaude(Funcionario[] funcionarios, int parteIni, int parteFim, Semaphore semaphore, Semaphore[] rendezvousSemaphores, String outputPath) {
+        super("Plano de Saude", funcionarios, parteIni, parteFim, semaphore, rendezvousSemaphores, outputPath);
     }
 
     @Override

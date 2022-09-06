@@ -6,8 +6,8 @@ import java.util.concurrent.Semaphore;
 
 public class CalculadoraPrevPriv extends Calculadora{
 
-    public CalculadoraPrevPriv(Funcionario[] funcionarios, int[] partes, int parteInicial, Semaphore semaphore, Semaphore[] rendezvousSemaphores, String outputPath) {
-        super("Previdencia Privada", funcionarios, partes, parteInicial, semaphore, rendezvousSemaphores, outputPath);
+    public CalculadoraPrevPriv(Funcionario[] funcionarios, int parteIni, int parteFim, Semaphore semaphore, Semaphore[] rendezvousSemaphores, String outputPath) {
+        super("Previdencia Privada", funcionarios, parteIni, parteFim, semaphore, rendezvousSemaphores, outputPath);
     }
 
     @Override

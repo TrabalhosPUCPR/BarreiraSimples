@@ -47,7 +47,7 @@ public class Funcionario {
     @Override
     public String toString() {
         String string = "ID: " + this.id + "\n";
-        string += "Salario bruto: " + this.salario;
+        string += "Salario bruto: " + this.salario + "\n";
         string += "Imposto de Renda: " + this.disc_impostoRenda + "\n";
         string += "INSS: " + this.disc_inss + "\n";
         string += "Previdencia Privada: " + this.disc_prev_privada + "\n";

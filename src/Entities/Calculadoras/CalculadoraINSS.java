@@ -6,8 +6,8 @@ import java.util.concurrent.Semaphore;
 
 public class CalculadoraINSS extends Calculadora{
 
-    public CalculadoraINSS(Funcionario[] funcionarios, int[] partes, int parteInicial, Semaphore semaphore, Semaphore[] rendezvousSemaphores, String outputPath) {
-        super("INSS", funcionarios, partes, parteInicial, semaphore, rendezvousSemaphores, outputPath);
+    public CalculadoraINSS(Funcionario[] funcionarios, int parteIni, int parteFim, Semaphore semaphore, Semaphore[] rendezvousSemaphores, String outputPath) {
+        super("INSS", funcionarios, parteIni, parteFim, semaphore, rendezvousSemaphores, outputPath);
     }
 
     @Override

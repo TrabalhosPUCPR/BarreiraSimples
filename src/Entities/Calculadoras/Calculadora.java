@@ -14,19 +14,17 @@ public abstract class Calculadora extends Thread{
     String desc;
     File file;
     Funcionario[] funcionarios;
-    int[] partes;
-    int parteInicial;
-    private int tamParte;
+    int parteIni;
+    int parteFim;
 
-    protected Calculadora(String desc, Funcionario[] funcionarios, int[] partes, int parteInicial, Semaphore semaphore, Semaphore[] rendezvousSemaphores, String outputPath){
+    protected Calculadora(String desc, Funcionario[] funcionarios, int parteIni, int parteFim, Semaphore semaphore, Semaphore[] rendezvousSemaphores, String outputPath){
         this.desc = desc;
         this.semaphore = semaphore;
         this.rendezvousSemaphores = rendezvousSemaphores;
         this.file = new File(outputPath);
         this.funcionarios = funcionarios;
-        this.partes = partes;
-        this.parteInicial = parteInicial;
-        this.tamParte = partes[1] - partes[0];
+        this.parteIni = parteIni;
+        this.parteFim = parteFim;
         try{
             this.file.createNewFile();
         }catch (Exception ignored){}
@@ -36,7 +34,7 @@ public abstract class Calculadora extends Thread{
 
     public void run(){
         try {
-            for(int i = this.parteInicial; i < this.funcionarios.length + this.parteInicial; i++){
+            for(int i = this.parteIni; i < this.funcionarios.length + this.parteIni; i++){
                 this.calculate_disc(this.funcionarios[i % this.funcionarios.length]);
             }
             System.out.println(this.desc + " terminou!");
@@ -51,8 +49,8 @@ public abstract class Calculadora extends Thread{
         FileWriter writer = new FileWriter(this.file);
         writer.write(""); // limpa o arquivo
         writer = new FileWriter(this.file, true);
-        writer.write("PARTE " + this.parteInicial + 1 + "\n\n");
-        for(int i = this.parteInicial; i < this.parteInicial + this.tamParte; i++){
+        writer.write("PARTE " + (this.parteIni + 1) + "\n\n");
+        for(int i = this.parteIni; i < this.parteIni + (this.parteFim - this.parteIni); i++){
             writer.write(this.funcionarios[i].toString() + "\n");
         }
         writer.close();
