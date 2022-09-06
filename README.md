@@ -5,6 +5,7 @@ Sistema de barreira simples usando Threads no java
 
 Implemente um sistema composto por 5 threads (numeradas de 0 a 4) para a geração
 da folha de pagamento de uma empresa, da seguinte forma:
+
 Thread 0:
 
 1. Cria uma lista de n funcionários, onde n é um múltiplo de 4, de forma que, para
@@ -29,7 +30,7 @@ parte 3 e parte 4.
 3. Cria e inicia as threads 1 a 4, informando-as sobre o início e o fim de cada parte
 da lista.
 
-Thread 1:
+Thread 1:</br>
 A. Calcula o imposto de renda retido na fonte para cada funcionário, atualizando
 o seu total de descontos e o seu salário líquido. O valor de imposto de renda é
 calculado como 20% do salário bruto. Executa quatro passos em sequência, um
@@ -39,7 +40,7 @@ C. Imprime os contra-cheques dos funcionários da parte 1 da lista, gerando um
 arquivo chamado parte1.txt
 
 
-Thread 2:
+Thread 2:</br>
 A. Calcula o valor de previdência obrigatória (INSS) para cada funcionário,
 atualizando o seu total de descontos e o seu salário líquido. O valor de INSS é
 calculado como 8% do salário bruto. Executa quatro passos em sequência, um
@@ -49,7 +50,7 @@ C. Imprime os contra-cheques dos funcionários da parte 2 da lista, gerando um
 arquivo chamado parte2.txt
 
 
-Thread 3:
+Thread 3:</br>
 A. Calcula a previdência privada para cada funcionário, atualizando o seu total de
 descontos e o seu salário líquido. O valor de previdência privada é calculado
 como 4% do salário bruto. Executa quatro passos em sequência, um para cada
@@ -59,7 +60,7 @@ C. Imprime os contra-cheques dos funcionários da parte 3 da lista, gerando um
 arquivo chamado parte3.txt
 
 
-Thread 4:
+Thread 4:</br>
 A. Calcula o valor de plano de saúde para cada funcionário e atualizando o seu
 total de descontos e o seu salário líquido. O valor do plano de saúde é
 calculado como 2% do salário bruto. Executa quatro passos em sequência, um
@@ -71,4 +72,4 @@ arquivo chamado parte4.txt
 
 Importante: Cada parte da lista é manipulada com exclusão mútua entre as threads.
 Essa propriedade pode ser implementanda usando-se o Padrão Mutex ou o Padrão
-Sinalizaçã
+Sinalização.
