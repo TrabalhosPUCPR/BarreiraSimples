@@ -9,6 +9,7 @@ import java.util.concurrent.Semaphore;
 
 public abstract class Calculadora extends Thread{
 
+    static int printParte = 1;
     Semaphore semaphore;
     Semaphore[] rendezvousSemaphores;
     String desc;
@@ -16,6 +17,7 @@ public abstract class Calculadora extends Thread{
     Funcionario[] funcionarios;
     int parteIni;
     int parteFim;
+    int parte;
 
     protected Calculadora(String desc, Funcionario[] funcionarios, int parteIni, int parteFim, Semaphore semaphore, Semaphore[] rendezvousSemaphores, String outputPath){
         this.desc = desc;
@@ -25,6 +27,8 @@ public abstract class Calculadora extends Thread{
         this.funcionarios = funcionarios;
         this.parteIni = parteIni;
         this.parteFim = parteFim;
+        this.parte = Calculadora.printParte;
+        Calculadora.printParte++;
         try{
             this.file.createNewFile();
         }catch (Exception ignored){}
@@ -32,6 +36,7 @@ public abstract class Calculadora extends Thread{
 
     abstract public void calculate_disc(Funcionario funcionario);
 
+    @Override
     public void run(){
         try {
             for(int i = this.parteIni; i < this.funcionarios.length + this.parteIni; i++){
@@ -49,7 +54,7 @@ public abstract class Calculadora extends Thread{
         FileWriter writer = new FileWriter(this.file);
         writer.write(""); // limpa o arquivo
         writer = new FileWriter(this.file, true);
-        writer.write("PARTE " + (this.parteIni + 1) + "\n\n");
+        writer.write("PARTE " + this.parte + "\n\n");
         for(int i = this.parteIni; i < this.parteIni + (this.parteFim - this.parteIni); i++){
             writer.write(this.funcionarios[i].toString() + "\n");
         }
